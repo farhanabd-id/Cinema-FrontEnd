@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <!-- 
+    - favicon
+  -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+    <!-- 
+    - custom css link
+  -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!-- 
+    - google font link
+  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <title>Movie</title>
+</head>
+
+<body>
+
+
+    <header class="header" data-header>
+        <div class="container">
+
+            <div class="overlay" data-overlay></div>
+
+            <a href="./index.html" class="logo">
+                <img src="./assets/images/logo.svg" alt="Filmlane logo">
+            </a>
+
+            <div class="header-actions">
+
+                <li id="back">
+                    <a href="./index.html" class="navbar-link" style="text-decoration: none;">
+                      <i class="uil uil-previous" style="font-size: 1.25rem;">BACK</i>
+                    </a>
+                  </li>
+
+                <!-- <div class="lang-wrapper">
+                    <label for="language">
+                        <ion-icon name="person-circle-outline"></ion-icon>
+                    </label>
+
+                    <select name="language" id="language">
+                        <option id="user-topup" value="">Nama</option>
+                        <option id="user-saldo" value="">Saldo</option>
+                    </select>
+                </div> -->
+
+            </div>
+
+            <button class="menu-open-btn" data-menu-open-btn>
+                <ion-icon name="reorder-two"></ion-icon>
+            </button>
+
+            <nav class="navbar" data-navbar>
+
+                <div class="navbar-top">
+
+                    <a href="./index.html" class="logo">
+                        <img src="./assets/images/logo.svg" alt="Filmlane logo">
+                    </a>
+
+                    <button class="menu-close-btn" data-menu-close-btn>
+                        <ion-icon name="close-outline"></ion-icon>
+                    </button>
+
+                </div>
+
+                <ul class="navbar-list">
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <section class="top-rated">
+        <div class="divider-upcoming"></div>
+        <div class="container">
+
+            <p class="section-subtitle">Playing Now</p>
+
+            <h2 class="h2 section-title">Movies in Cinema</h2>
+
+            <ul class="movies-list" id="movie-list">
+
+            </ul>
+
+        </div>
+    </section>
+
+    <script src="movie.js"></script>
+
+</body>
+
+</html>

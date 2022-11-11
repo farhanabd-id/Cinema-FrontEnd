@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <!-- 
+    - favicon
+  -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+    <!-- 
+    - custom css link
+  -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!-- 
+    - google font link
+  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <title>Movie</title>
+</head>
+
+<body id="top">
+
+
+    <header class="header" data-header>
+        <div class="container">
+
+            <div class="overlay" data-overlay></div>
+
+            <a href="./index.html" class="logo">
+                <img src="./assets/images/logo.svg" alt="Filmlane logo">
+            </a>
+
+            <div class="header-actions">
+
+            </div>
+
+            <button class="menu-open-btn" data-menu-open-btn>
+                <ion-icon name="reorder-two"></ion-icon>
+            </button>
+
+            <nav class="navbar" data-navbar>
+
+                <div class="navbar-top">
+
+                    <a href="./index.html" class="logo">
+                        <img src="./assets/images/logo.svg" alt="Filmlane logo">
+                    </a>
+
+                    <button class="menu-close-btn" data-menu-close-btn>
+                        <ion-icon name="close-outline"></ion-icon>
+                    </button>
+
+                </div>
+
+                <ul class="navbar-list">
+
+                    <li id="back">
+                        <a href="./index.html" class="navbar-link" style="text-decoration: none;">
+                            <i class="uil uil-previous" style="font-size: 1.25rem;">BACK</i>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <section class="top-rated">
+        <div class="divider-upcoming"></div>
+        <div class="container">
+
+            <h2 class="h2 section-title">Update User</h2>
+
+            <form class="form-signin">
+                <p style="color: white; font-weight: bolder;">Name</p>
+                <input type="text" id="inputName" class="form-control" placeholder="Name" required autofocus>
+                <p style="color: white; font-weight: bolder;">Username</p>
+                <input type="text" id="inputUname" class="form-control" placeholder="Username" required>
+                <p style="color: white; font-weight: bolder;">Password</p>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <button type="submit" class="btn btn-primary mt-4" onclick="updateuser()">Submit</button>
+            </form>
+
+        </div>
+    </section>
+
+    <script src="/login/dist/login.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+
+            const validationtoken = getCookie('token_user')
+            if (!validationtoken) {
+                // cek valid
+
+                window.location.href = '/login/dist/login.html';
+            } 
+
+            const tokenupdate = getCookie('token_user')
+            const split = tokenupdate.split(".");
+            let user = JSON.parse(atob(split[1]));
+            let userid = user["user"]
+            console.log(userid)
+            const name = document.getElementById("inputName")
+            const username = document.getElementById("inputUname")
+            var requestOptions = {
+                method: 'GET',
+            };
+
+            fetch("http://127.0.0.1:5000/user/" + userid, requestOptions)
+                .then(response => response.json())
+                .then(result => {
+                    // localStorage.setItem("udata",JSON.stringify(result))
+                    console.log(result)
+                    // document.getElementById('user-topup').innerHTML = result[0].nama
+                    document.getElementById('inputName').value = result[0].nama
+                    document.getElementById('inputUname').value = result[0].username
+                    document.getElementById('inputPassword').value = result[0].password
+                    document.getElementById('user-saldo').innerHTML = 'Saldo : ' + formatRupiah(result[0]
+                        .saldo)
+                    name.value = result[0].nama,
+                        username.value = result[0].username
+                })
+                //   .then(result => localStorage.setItem("udata",JSON.stringify(result)))
+                .catch(error => console.log('error', error));
+        });
+    </script>
+
+</body>
+
+</html>

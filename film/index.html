@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+  <script src="/login/dist/login.js"></script>
+  
+  <title>Film</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<style>
+
+</style>
+
+<body id="top" onload="checkCookies()">
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <div class="overlay" data-overlay></div>
+
+      <a href="./index.html" class="logo">
+        <img src="./assets/images/logo.svg" alt="Filmlane logo">
+      </a>
+
+      <div class="header-actions">
+
+        <a class="repeat-btn" type="button" href="/film/updateuser.html">
+          <ion-icon name="repeat-outline"></ion-icon>
+        </a>
+
+        <div class="lang-wrapper">
+          <label for="language">
+            <ion-icon name="person-circle-outline"></ion-icon>
+          </label>
+
+          <select name="language" id="language">
+            <option id="user-topup" value="">Nama</option>
+            <option id="user-saldo" value="">Saldo</option>
+          </select>
+        </div>
+
+        <button onclick="logout()" id="btn" class="btn btn-primary">Log Out</button>
+
+      </div>
+
+      <button class="menu-open-btn" data-menu-open-btn>
+        <ion-icon name="reorder-two"></ion-icon>
+      </button>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+
+          <a href="./index.html" class="logo">
+            <img src="./assets/images/logo.svg" alt="Filmlane logo">
+          </a>
+
+          <button class="menu-close-btn" data-menu-close-btn>
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+
+        </div>
+
+        <ul class="navbar-list">
+
+          <!-- <li>
+            <a href="./index.html" class="navbar-link">Home</a>
+          </li> -->
+
+          <li>
+            <a href="#" class="navbar-link" onclick="movie()">Movie</a>
+          </li>
+
+          <li>
+            <a id="myBtn" href="#" onclick="tes3()" class="navbar-link">top up</a>
+          </li>
+
+        </ul>
+
+        <ul class="navbar-social-list">
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-pinterest"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div>
+
+    <div id="wrap">
+      <form id="nav-search" class="form-search" role="search">
+        <input list="browsers" oninput="auto()" onkeyup="myFunction()" id="myInput" class="search-input" type="text" placeholder="Search Film" />
+          <a class="icon" id="search-btn"></a>
+        <datalist id="browsers">
+          
+        </datalist>
+        </form>
+
+
+    </div>
+
+  </header>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="hero">
+        <div class="container">
+          <div class="grid-container">
+            <div class="grid-item">
+              <div class="hero-content">
+
+                <p class="hero-subtitle">Filmlane</p>
+
+                <h1 class="h1 hero-title">
+                  Now <strong>Showing</strong>, In, Cinemas.
+                </h1>
+
+                  <button onclick="buymovie()" class="btn btn-primary">
+                    <ion-icon name="film"></ion-icon>
+
+                  <span>Buy Ticket</span>
+                </button>
+
+              </div>
+            </div>
+
+            <div class="grid-item">
+              <section class="carousel" aria-label="Gallery">
+                <ol class="carousel__viewport">
+                  <li id="carousel__slide1" tabindex="0" class="carousel__slide">
+                    <img src="/film/assets/images/movie-1.png" alt="">
+                    <div class="carousel__snapper">
+                      <a href="#carousel__slide4" class="carousel__prev">Go to last slide</a>
+                      <a href="#carousel__slide2" class="carousel__next">Go to next slide</a>
+                    </div>
+                  </li>
+                  <li id="carousel__slide2" tabindex="0" class="carousel__slide">
+                    <img src="/film/assets/images/movie-2.png" alt="">
+                    <div class="carousel__snapper">
+                    </div>
+                    <a href="#carousel__slide1" class="carousel__prev">Go to previous slide</a>
+                    <a href="#carousel__slide3" class="carousel__next">Go to next slide</a>
+                  </li>
+                  <li id="carousel__slide3" tabindex="0" class="carousel__slide">
+                    <img src="/film/assets/images/movie-3.png" alt="">
+                    <div class="carousel__snapper"></div>
+                    <a href="#carousel__slide2" class="carousel__prev">Go to previous slide</a>
+                    <a href="#carousel__slide4" class="carousel__next">Go to next slide</a>
+                  </li>
+                  <li id="carousel__slide4" tabindex="0" class="carousel__slide">
+                    <img src="/film/assets/images/movie-4.png" alt="">
+                    <div class="carousel__snapper"></div>
+                    <a href="#carousel__slide3" class="carousel__prev">Go to previous slide</a>
+                    <a href="#carousel__slide1" class="carousel__next">Go to first slide</a>
+                  </li>
+                </ol>
+                
+                </li>
+                </ol>
+                </aside>
+              </section>
+            </div>
+          </div>
+
+
+        </div>
+      </section>
+
+
+
+      
+
+    </article>
+   
+  </main>
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="footer-brand-wrapper">
+
+          <a href="./index.html" class="logo">
+            <img src="./assets/images/logo.svg" alt="Filmlane logo">
+          </a>
+
+          <ul class="footer-list">
+
+            <li>
+              <a href="#" class="quicklink-link">Faq</a>
+            </li>
+
+            <li>
+              <a href="#" class="quicklink-link">Help center</a>
+            </li>
+
+            <li>
+              <a href="#" class="quicklink-link">Terms of use</a>
+            </li>
+
+            <li>
+              <a href="#" class="quicklink-link">Privacy</a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="quicklink-wrapper">
+
+          <ul class="quicklink-list">
+          
+            <ul class="social-list">
+
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+              </li>
+  
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+              </li>
+  
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-pinterest"></ion-icon>
+                </a>
+              </li>
+  
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+              </li>
+  
+            </ul>
+
+            
+
+          </ul>
+
+          
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <img src="./assets/images/footer-bottom-img.png" alt="Online banking companies logo" class="footer-bottom-img">
+
+      </div>
+    </div>
+
+  <!-- TOP UP Modal -->
+      <!-- The Modal -->
+      <div id="myModaltopup" class="modala" style="display: none;">
+
+        <!-- Modal content -->
+        <div class="modala-content">
+          <span class="close">&times;</span>
+  
+              </form>
+              <div class="form-group mt-2">
+                <label for="exampleInputPassword1">Top Up Ammount</label>
+                <input type="number" class="form-control" id="ammount" placeholder="Ammount">
+              </div>
+              <button onclick="topup()" id="btn-ticket" type="button" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+  
+      </div>
+  
+  </footer>
+
+  
+
+
+
+
+
+  <!-- 
+    - #GO TO TOP
+  -->
+
+  <a href="#top" class="go-top" data-go-top>
+    <ion-icon name="chevron-up"></ion-icon>
+  </a>
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+    // LOGIN
+
+    document.addEventListener("DOMContentLoaded", () => {
+      checkCookies()
+      getUser()
+      modaltopup()
+
+      // console.log(JSON.parse(localStorage.getItem("udata")))
+    });
+
+    function login1() {
+      window.location.href = '/login/dist/login.html'
+    }
+
+    function checkCookies() {
+      // const cookie = document.cookie;
+      if (document.cookie.length == 0) {
+        // console.log(document.cookie)
+        // return cookie;
+        // alert(document.cookie);
+        document.getElementById("btn").innerHTML = "Log In";
+        document.getElementById("btn").setAttribute("onclick, login1()");
+      } else {
+        // alert("Cookie Has Expired!");
+        // getUser();
+        // console.log(document.cookie)
+      }
+    }
+
+    
+    function modaltopup(){
+
+      // Get the modal
+      var modal = document.getElementById("myModaltopup");
+  
+      // Get the button that opens the modal
+      var btn = document.getElementById("myBtn");
+  
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+  
+      // When the user clicks the button, open the modal 
+      btn.onclick = function () {
+        modal.style.display = "block";
+      }
+  
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function () {
+        modal.style.display = "none";
+      }
+    }
+
+    function auto() {
+      const inputValue = document.getElementById('myInput').value;
+      var elements = document.querySelector('datalist#browsers');
+      // Cleaner
+      elements.innerHTML=''
+
+      var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+        "film_judul": inputValue
+    });
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+    };
+
+    fetch("http://127.0.0.1:5000/film/cari", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+          console.log(result)
+          result.forEach((item, index) => {
+            let option = document.createElement('option');
+            option.value = item.film_judul;
+            elements.appendChild(option);
+            // filmDetail(item.id)
+            // document.getElementById("nav-search").action = '../film/movie-details.html?fid'+item.id
+            const filmDetail = document.getElementById('search-btn')
+            filmDetail.href = '../film/movie-details.html?fid='+item.id
+          });
+        })
+        .catch(error => console.log('error', error));
+
+    }
+    
+  </script>
+
+
+</body>
+
+</html>

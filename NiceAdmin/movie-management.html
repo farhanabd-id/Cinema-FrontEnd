@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Movie Management</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="/film/assets/images/logo.svg" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center" style="background-color: black;">
+
+        <div class="d-flex align-items-center justify-content-between">
+            <a href="index.html" class="logo d-flex align-items-center">
+              <img src="/film/assets/images/logo.svg" alt="">
+              <!-- <span class="d-none d-lg-block">Admin</span> -->
+            </a>
+            <i class="bi bi-list toggle-sidebar-btn"></i>
+          </div>
+        <!-- End Logo -->
+
+        <nav class="header-nav ms-auto">
+            <ul class="d-flex align-items-center">
+
+                <li class="nav-item dropdown pe-3">
+
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <span> <button type="button" onclick="logout()" class="btn btn-outline-danger"> Log Out</button>
+                        </span>
+                    </a>
+
+            </ul>
+
+            </ul>
+        </nav>
+
+    </header><!-- End Header -->
+
+    <!-- ======= Sidebar ======= -->
+    <aside id="sidebar" class="sidebar">
+
+        <ul class="sidebar-nav" id="sidebar-nav">
+
+            <li class="nav-item">
+                <a class="nav-link " href="index.html">
+                    <i class="bi bi-grid"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li><!-- End Dashboard Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#components-nav" href="#">
+                    <i class="bi bi-menu-button-wide"></i><span>Movie Management</span>
+                </a>
+            </li><!-- End Components Nav -->
+
+            <!-- <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i
+                        class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="tables-general.html">
+                            <i class="bi bi-circle"></i><span>General Tables</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tables-data.html">
+                            <i class="bi bi-circle"></i><span>Data Tables</span>
+                        </a>
+                    </li>
+                </ul>
+            </li> -->
+            <!-- End Tables Nav -->
+
+            <!-- <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-bar-chart"></i><span>Charts</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="charts-chartjs.html">
+              <i class="bi bi-circle"></i><span>Chart.js</span>
+            </a>
+          </li>
+          <li>
+            <a href="charts-apexcharts.html">
+              <i class="bi bi-circle"></i><span>ApexCharts</span>
+            </a>
+          </li>
+          <li>
+            <a href="charts-echarts.html">
+              <i class="bi bi-circle"></i><span>ECharts</span>
+            </a>
+          </li>
+        </ul>
+      </li> -->
+            <!-- End Charts Nav -->
+
+            <!-- <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-gem"></i><span>Icons</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="icons-bootstrap.html">
+                            <i class="bi bi-circle"></i><span>Bootstrap Icons</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="icons-remix.html">
+                            <i class="bi bi-circle"></i><span>Remix Icons</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="icons-boxicons.html">
+                            <i class="bi bi-circle"></i><span>Boxicons</span>
+                        </a>
+                    </li>
+                </ul>
+            </li> -->
+            <!-- End Icons Nav -->
+
+        </ul>
+
+    </aside><!-- End Sidebar-->
+
+    <main id="main" class="main">
+
+        <div class="pagetitle">
+            <h1>Movie Management</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Movie Management</li>
+                </ol>
+            </nav>
+        </div>
+        <!-- End Page Title -->
+        <section class="section">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card top-selling overflow-auto">
+
+                        <div class="card-body pb-0">
+                            <h5 class="card-title">Table Movie <span></span></h5>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCreateMovie">
+                                Create New Movie </button>
+
+                            <table class="table table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">No.</th>
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Category</th>
+                                        <th scope="col">Action</th>
+                                        <!-- <th scope="col">Desc</th> -->
+                                        <!-- <th scope="col">Rating</th>
+                              <th scope="col">Production</th>
+                              <th scope="col">Duration</th>
+                              <th scope="col">Country</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody id="create">
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- <div class="col-lg-6">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Add Movie Schedule</h5>
+
+                            Create New Movie
+                            <form>
+                                <div class="row mb-3">
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Date</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputText">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Hour</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputText">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputPassword3" class="col-sm-2 col-form-label">Price</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputText">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputPassword3" class="col-sm-2 col-form-label">Title</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputText">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputPassword3" class="col-sm-2 col-form-label">Teater</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputText">
+                                    </div>
+                                </div>
+                                
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="reset" class="btn btn-secondary">Reset</button>
+                                </div>
+                            </form>End Horizontal Form
+                        </div>
+                    </div>
+
+                    
+
+                <div class="col-lg-6">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Edit Movie Schedule</h5>
+
+                            Vertical Form
+                            Vertical Form
+
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Update Movie</h5>
+
+                            Floating Labels Form
+                            <form class="row g-3">
+                                <div class="col-12">
+                                    <label for="inputAddress" class="form-label">Category</label>
+                                    <input type="text" class="form-control" id="inputAddress" placeholder="id">
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" id="floatingEmail" placeholder="Title">
+                                        <label for="floatingTextarea">Title</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" placeholder="Description" id="floatingTextarea"
+                                            style="height: 100px;"></textarea>
+                                        <label for="floatingTextarea">Description</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="col-md-12">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="floatingCity"
+                                                placeholder="Rating">
+                                            <label for="floatingTextarea">Rating</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="col-md-12">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="floatingCity"
+                                                placeholder="Production">
+                                            <label for="floatingTextarea">Production</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="floatingCity"
+                                            placeholder="Duration">
+                                        <label for="floatingTextarea">Duration</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="floatingZip" placeholder="Country">
+                                        <label for="floatingTextarea">Country</label>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="reset" class="btn btn-secondary">Reset</button>
+                                </div>
+                            </form>End floating Labels Form
+
+                        </div>
+                    </div>
+
+                </div> -->
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card top-selling overflow-auto">
+
+                        <div class="card-body pb-0">
+                            <h5 class="card-title">Table Movie <span></span></h5>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAddMovie"> Add
+                                Movie Schedule </button>
+
+                            <table class="table table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">No.</th>
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Action</th>
+                                        <!-- <th scope="col">Desc</th> -->
+                                        <!-- <th scope="col">Rating</th>
+                              <th scope="col">Production</th>
+                              <th scope="col">Duration</th>
+                              <th scope="col">Country</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody id="addmovie">
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+        <!-- <div class="copyright">
+            &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits"> -->
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+        <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
+        </div>
+    </footer><!-- End Footer -->
+
+    <!-- Modal Create New Movie -->
+    <div class="modal fade" id="modalCreateMovie" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Create New Movie</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row g-3">
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="titlemovie" placeholder="Title">
+                                <label for="floatingTextarea">Title</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="categorymovie" placeholder="Category">
+                                <label for="floatingTextarea">Category</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="ratingmovie" placeholder="Rating">
+                                <label for="floatingTextarea">Rating</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Address" id="descmovie"
+                                    style="height: 100px;"></textarea>
+                                <label for="floatingTextarea">Description</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="productionmovie"
+                                        placeholder="Production">
+                                    <label for="floatingTextarea">Production</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="durationmovie" placeholder="Duration">
+                                <label for="floatingTextarea">Duration</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="countrymovie" placeholder="Country">
+                                <label for="floatingTextarea">Country</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="imagemovie" placeholder="Country">
+                                <label for="floatingTextarea">Image</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="createmovie()">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Add Movie Schedule -->
+    <div class="modal fade" id="modalAddMovie" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add Movie Schedule</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row mb-3">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Date</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputDate">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Hour</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputHour">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Price</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputPrice">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Title</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputTitle">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Teater</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputTeater">
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="addmovie()">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Edit Movie -->
+    <div class="modal fade" id="modalEditMovie" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Update Movie</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row g-3" id="saveeditmovie">
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="titlemovieedit" placeholder="Title">
+                                <label for="floatingTextarea">Title</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="categorymovieedit" placeholder="Category">
+                                <label for="floatingTextarea">Category</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="ratingmovieedit" placeholder="Rating">
+                                <label for="floatingTextarea">Rating</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Address" id="descmovieedit"
+                                    style="height: 100px;"></textarea>
+                                <label for="floatingTextarea">Description</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="productionmovieedit"
+                                        placeholder="Production">
+                                    <label for="floatingTextarea">Production</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="durationmovieedit" placeholder="Duration">
+                                <label for="floatingTextarea">Duration</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="countrymovieedit" placeholder="Country">
+                                <label for="floatingTextarea">Country</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="imagemovieedit" placeholder="Country">
+                                <label for="floatingTextarea">Image</label>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button class="btn btn-primary" id="btnUpdateMovie">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Edit Movie Schedule -->
+    <div class="modal fade" id="modalEditMovieSchedule" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Movie Schedule</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row mb-3">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Date</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputDateEdit">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Hour</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputHourEdit">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Price</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputPriceEdit">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Title</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputTitleEdit">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Teater</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputTeaterEdit">
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="updateSchedule">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/chart.js/chart.min.js"></script>
+    <script src="assets/vendor/echarts/echarts.min.js"></script>
+    <script src="assets/vendor/quill/quill.min.js"></script>
+    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        function logout() {
+            document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            localStorage.removeItem("udata")
+            window.location.href = '/login/dist/loginadmin.html'
+
+        }
+    </script>
+
+</body>
+
+</html>
